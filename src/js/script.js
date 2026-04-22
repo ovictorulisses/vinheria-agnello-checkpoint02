@@ -1,15 +1,16 @@
-let totalCadastros = 0;
-let totalEstoqueBaixo = 0;
-let safraMaisAntiga = null;
-let nomeMaisAntigo = "";
+let totalCadastros = 0;        
+let totalEstoqueBaixo = 0;     
+let safraMaisAntiga = null;    
+let nomeMaisAntigo = "";       
 
 function validarEntrada(mensagem) {
     let valor = prompt(mensagem);
 
-    while (valor == "" || valor == null) {
+    while (valor === "" || valor === null) {
         alert("Valor inválido! Tente novamente.");
         valor = prompt(mensagem);
     }
+
     return valor;
 }
 
@@ -21,8 +22,8 @@ function verificarEstoque(quantidade) {
 }
 
 function classificarVinho(safra) {
-    let anoAtual = new Date().getFullYear();
-    let idade = anoAtual - safra;
+    let anoAtual = new Date().getFullYear(); 
+    let idade = anoAtual - safra;           
 
     if (idade <= 3) {
         return "Vinho jovem";
@@ -54,6 +55,7 @@ function mostrarDados(nome, tipo, safra, quantidade, classificacao, estoqueBaixo
     alert(`Vinho cadastrado: ${nome}\nClassificação: ${classificacao}`);
 }
 
+
 let continuar = true;
 
 while (continuar) {
@@ -61,9 +63,9 @@ while (continuar) {
     let nomeVinho = validarEntrada("Digite o nome do vinho:");
     let tipoVinho = validarEntrada("Digite o tipo (Tinto, Branco ou Rosé):");
     let safraVinho = parseInt(validarEntrada("Digite o ano da safra:"));
-    let quantidadeEstoque = validarEntrada("Digite a quantidade em estoque:");
+    let quantidadeEstoque = parseInt(validarEntrada("Digite a quantidade em estoque:"));
 
-    totalCadastros++;
+    totalCadastros++; 
 
     let estoqueBaixo = verificarEstoque(quantidadeEstoque);
     let classificacao = classificarVinho(safraVinho);
